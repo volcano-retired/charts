@@ -39,7 +39,7 @@ The following are the list configurable parameters of Volcano Chart and their de
 
 | Parameter|Description|Default Value|
 |----------------|-----------------|----------------------|
-|`basic.image_tag_version`| Docker image version Tag | `default`|
+|`basic.image_tag_version`| Docker image version Tag | `latest`|
 |`basic.controller_image_name`|Controller Docker Image Name|`volcanosh/vk-controllers`|
 |`basic.scheduler_image_name`|Scheduler Docker Image Name|`volcanosh/vk-kube-batch`|
 |`basic.admission_image_name`|Admission Controller Image Name|`volcanosh/vk-admission`|
