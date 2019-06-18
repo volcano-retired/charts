@@ -1,37 +1,69 @@
-## Welcome to GitHub Pages
+## Volcano
 
-You can use the [editor on GitHub](https://github.com/volcano-sh/charts/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Volcano is a batch system built on Kubernetes. It provides a suite of mechanisms currently missing from
+Kubernetes that are commonly required by many classes of batch & elastic workload including:
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+1. machine learning/deep learning,
+2. bioinformatics/genomics, and 
+3. other "big data" applications.
 
-### Markdown
+## Introduction
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+This chart bootstraps [volcano](https://github.com/volcano-sh/volcano) components like controller, scheduler and admission controller deployments using [Helm](https://helm.sh) package manager.
 
-```markdown
-Syntax highlighted code block
+## Prerequisites
 
-# Header 1
-## Header 2
-### Header 3
+- Kubernetes 1.13+ with CRD support
 
-- Bulleted
-- List
+## Installing Chart
 
-1. Numbered
-2. List
+To install the chart with the release name `volcano-release`:
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```bash
+$ helm repo add volcano https://volcano-sh.github.io/charts
+$ helm install --name volcano-release volcano/volcano
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+This command deploys volcano in kubernetes cluster with default configuration.  The [configuration](#configuration) section lists the parameters that can be configured during installation.
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/volcano-sh/charts/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Uninstalling the Chart
 
-### Support or Contact
+```bash
+$ helm delete volcano-release --purge
+```
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Configuration
+
+The following are the list configurable parameters of Volcano Chart and their default values.
+
+| Parameter|Description|Default Value|
+|----------------|-----------------|----------------------|
+|`basic.image_tag_version`| Docker image version Tag | `latest`|
+|`basic.controller_image_name`|Controller Docker Image Name|`volcanosh/vk-controllers`|
+|`basic.scheduler_image_name`|Scheduler Docker Image Name|`volcanosh/vk-kube-batch`|
+|`basic.admission_image_name`|Admission Controller Image Name|`volcanosh/vk-admission`|
+|`basic.admission_secret_name`|Volcano Admission Secret Name|`volcano-admission-secret`|
+|`basic.scheduler_config_file`|Configuration File name for Scheduler|`kube-batch.conf`|
+|`basic.image_pull_secret`|Image Pull Secret|`""`|
+|`basic.image_pull_policy`|Image Pull Policy|`IfNotPresent`|
+|`basic.admission_app_name`|Admission Controller App Name|`volcano-admission`|
+|`basic.controller_app_name`|Controller App Name|`volcano-controller`|
+|`basic.scheduler_app_name`|Scheduler App Name|`volcano-scheduler`|
+
+Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
+
+```bash
+$ helm install --name volcano-release --set basic.image_pull_policy=Always volcano/volcano
+```
+
+The above command set image pull policy to `Always`, so docker image will be pulled each time.
+
+
+Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
+
+```bash
+$ helm install --name volcano-release -f values.yaml volcano/volcano
+```
+
+> **Tip**: You can use the default [values.yaml](chart/volcano/values.yaml)
