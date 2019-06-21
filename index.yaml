@@ -3,9 +3,9 @@ entries:
   volcano:
   - apiVersion: v1
     appVersion: "0.1"
-    created: 2019-06-20T12:41:44.973028746+05:30
+    created: 2019-06-21T14:22:07.728933585+05:30
     description: A Helm chart for Volcano
-    digest: 5f76651d7ddce565e77c4d1a6dc86c00406166d44b342a0171720b5ef8d9baea
+    digest: 076bf8af62564feb812549e7becc72b0e93707e1bc75c233d7ed21801529855a
     home: https://volcano.sh
     icon: https://raw.githubusercontent.com/volcano-sh/charts/master/docs/images/volcano-logo.png
     maintainers:
@@ -17,6 +17,6 @@ entries:
     sources:
     - https://github.com/volcano-sh/volcano
     urls:
-    - https://volcano-sh.github.io/charts/package/volcano-0.0.1.tgz
-    version: 0.0.1
-generated: 2019-06-20T12:41:44.972441847+05:30
+    - https://volcano-sh.github.io/charts/package/volcano-0.1.tgz
+    version: "0.1"
+generated: 2019-06-21T14:22:07.728338847+05:30

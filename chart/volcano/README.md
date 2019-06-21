@@ -20,8 +20,8 @@ This chart bootstraps [volcano](https://github.com/volcano-sh/volcano) component
 To install the chart with the release name `volcano-release`:
 
 ```bash
-$ helm repo add volcano https://volcano-sh.github.io/charts
-$ helm install --name volcano-release volcano/volcano
+$ helm repo add volcano-sh https://volcano-sh.github.io/charts
+$ helm install --name volcano-release volcano-sh/volcano
 ```
 
 This command deploys volcano in kubernetes cluster with default configuration.  The [configuration](#configuration) section lists the parameters that can be configured during installation.
