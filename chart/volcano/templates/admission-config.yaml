@@ -3,7 +3,8 @@ kind: ValidatingWebhookConfiguration
 metadata:
   name: {{ .Release.Name }}-validate-job
   annotations:
-    "helm.sh/hook": pre-install,pre-upgrade,post-delete
+    "helm.sh/hook": pre-install
+    "helm.sh/hook-delete-policy": before-hook-creation
 webhooks:
   - clientConfig:
       service:
@@ -29,7 +30,8 @@ kind: MutatingWebhookConfiguration
 metadata:
   name: {{ .Release.Name }}-mutate-job
   annotations:
-    "helm.sh/hook": pre-install,pre-upgrade,post-delete
+    "helm.sh/hook": pre-install
+    "helm.sh/hook-delete-policy": before-hook-creation
 webhooks:
   - clientConfig:
       service:
