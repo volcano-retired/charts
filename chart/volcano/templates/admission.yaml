@@ -120,10 +120,6 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     app: volcano-admission-init
-  annotations:
-    "helm.sh/hook": post-install
-    "helm.sh/hook-delete-policy": hook-succeeded
-    "helm.sh/hook-delete-timeout": "30"
 spec:
   backoffLimit: 3
   template:
