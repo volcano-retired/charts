@@ -65,6 +65,10 @@ spec:
                     description: The Event recorded by scheduler; the controller takes
                       actions according to this Event.
                     type: string
+                  eventlist:
+                    description: The EventList recorded by scheduler; the controller takes
+                      actions according to this EventList.
+                    type: array
                   timeout:
                     description: Timeout is the grace period for controller to take
                       actions. Default to nil (take action immediately).
@@ -99,6 +103,10 @@ spec:
                           description: The Event recorded by scheduler; the controller
                             takes actions according to this Event.
                           type: string
+                        eventlist:
+                          description: The EventList recorded by scheduler; the controller takes
+                            actions according to this EventList.
+                          type: array
                         timeout:
                           description: Timeout is the grace period for controller
                             to take actions. Default to nil (take action immediately).
