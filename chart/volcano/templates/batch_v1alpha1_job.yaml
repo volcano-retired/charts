@@ -65,9 +65,9 @@ spec:
                     description: The Event recorded by scheduler; the controller takes
                       actions according to this Event.
                     type: string
-                  eventlist:
-                    description: The EventList recorded by scheduler; the controller takes
-                      actions according to this EventList.
+                  events:
+                    description: The Events recorded by scheduler; the controller takes
+                      actions according to this Events.
                     type: array
                   timeout:
                     description: Timeout is the grace period for controller to take
@@ -103,9 +103,9 @@ spec:
                           description: The Event recorded by scheduler; the controller
                             takes actions according to this Event.
                           type: string
-                        eventlist:
-                          description: The EventList recorded by scheduler; the controller takes
-                            actions according to this EventList.
+                        events:
+                          description: The Events recorded by scheduler; the controller takes
+                            actions according to this Events.
                           type: array
                         timeout:
                           description: Timeout is the grace period for controller
