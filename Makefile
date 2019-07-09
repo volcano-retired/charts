@@ -1,4 +1,4 @@
-IMAGE_PREFIX=volcanosh/vk
+IMAGE_PREFIX=volcanosh/vc
 TAG=latest
 
 .EXPORT_ALL_VARIABLES:
