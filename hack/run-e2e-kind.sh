@@ -51,12 +51,12 @@ function install-volcano {
 
   echo "Pulling required docker images"
   docker pull ${IMAGE_PREFIX}-controllers:${TAG}
-  docker pull ${IMAGE_PREFIX}-kube-batch:${TAG}
+  docker pull ${IMAGE_PREFIX}-scheduler:${TAG}
   docker pull ${IMAGE_PREFIX}-admission:${TAG}
 
   echo "Loading docker images into kind cluster"
   kind load docker-image ${IMAGE_PREFIX}-controllers:${TAG}  ${CLUSTER_CONTEXT}
-  kind load docker-image ${IMAGE_PREFIX}-kube-batch:${TAG}  ${CLUSTER_CONTEXT}
+  kind load docker-image ${IMAGE_PREFIX}-scheduler:${TAG}  ${CLUSTER_CONTEXT}
   kind load docker-image ${IMAGE_PREFIX}-admission:${TAG}  ${CLUSTER_CONTEXT}
 
   echo "Install volcano chart"
