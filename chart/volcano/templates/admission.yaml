@@ -32,6 +32,9 @@ rules:
   - apiGroups: ["scheduling.incubator.k8s.io"]
     resources: ["queues"]
     verbs: ["get", "list"]
+  - apiGroups: ["scheduling.incubator.k8s.io"]
+    resources: ["podgroups"]
+    verbs: ["get", "list", "watch"]
 
 ---
 kind: ClusterRoleBinding
@@ -78,6 +81,7 @@ spec:
             - --ca-cert-file=/admission.local.config/certificates/ca.crt
             - --mutate-webhook-config-name={{ .Release.Name }}-mutate-job
             - --validate-webhook-config-name={{ .Release.Name }}-validate-job
+            - --validate-webhook-pod-config-name={{ .Release.Name }}-validate-pod
             - --alsologtostderr
             - --port=443
             - -v=4

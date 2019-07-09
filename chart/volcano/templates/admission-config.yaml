@@ -50,3 +50,29 @@ webhooks:
           - CREATE
         resources:
           - jobs
+---
+apiVersion: admissionregistration.k8s.io/v1beta1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: {{ .Release.Name }}-validate-pod
+  annotations:
+    "helm.sh/hook": pre-install
+    "helm.sh/hook-delete-policy": before-hook-creation
+webhooks:
+  - clientConfig:
+      service:
+        name: {{ .Release.Name }}-admission-service
+        namespace: {{ .Release.Namespace }}
+        path: /pods
+    failurePolicy: Ignore
+    name: validatepod.volcano.sh
+    namespaceSelector: {}
+    rules:
+      - apiGroups:
+          - ""
+        apiVersions:
+          - "v1"
+        operations:
+          - CREATE
+        resources:
+          - pods
