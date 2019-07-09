@@ -10,7 +10,7 @@ spec:
     kind: Job
     plural: jobs
     shortNames:
-      - vkjob
+      - vcjob
       - vj
   scope: Namespaced
   validation:
