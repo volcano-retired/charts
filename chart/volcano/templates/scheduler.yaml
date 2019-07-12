@@ -62,6 +62,12 @@ rules:
   - apiGroups: ["scheduling.k8s.io"]
     resources: ["priorityclasses"]
     verbs: ["get", "list", "watch"]
+  - apiGroups: ["scheduling.sigs.dev"]
+    resources: ["queues"]
+    verbs: ["get", "list", "watch", "create", "delete"]
+  - apiGroups: ["scheduling.sigs.dev"]
+    resources: ["podgroups"]
+    verbs: ["list", "watch", "update"]
 
 ---
 kind: ClusterRoleBinding
