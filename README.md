@@ -1,4 +1,6 @@
 ## Volcano Helm Chart
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fvolcano-sh%2Fcharts.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fvolcano-sh%2Fcharts?ref=badge_shield)
+
 
 Generate Helm chart package whenever a change has been made in chart/volcano folder.
 
@@ -23,3 +25,6 @@ helm repo index package --url https://volcano-sh.github.io/charts/package
 ## move index.yaml file from package to current directory
 mv package/index.yaml .
 ```
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fvolcano-sh%2Fcharts.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fvolcano-sh%2Fcharts?ref=badge_large)
